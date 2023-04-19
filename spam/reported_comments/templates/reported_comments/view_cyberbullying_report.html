@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+{% extends 'temp/admin_home.html' %}
+{% block base %}
+ <center>
+  <form method="post">
+  	<h3 style="color:#2020c6;font-family: cursive;padding-bottom: 20px;">Cyberbullying Report</h3>
+  	 <table border="1">
+  	 	<tr>
+  	 		<th style="text-align: center;width: 197px;background: #494962;color: white;">USERNAME</th>
+{#  	 		<th style="text-align: center;width: 197px;background: #494962;color: white;">COMMENT</th>#}
+  	 		<th style="text-align: center;width: 197px;background: #494962;color: white;">COMMENT</th>
+  	 		<th style="text-align: center;width: 197px;background: #494962;color: white;">DATE</th>
+  	 		<th style="text-align: center;width: 197px;background: #494962;color: white;">TIME</th>
+            <th style="text-align: center;width: 197px;background: #494962;color: white;"></th>
+  	 		
+         
+       </tr>
+         {% for i in creport %}
+       <tr>
+       	  
+          <td style="text-align: center;">{{i.user.username}}</td>
+{#          <td style="text-align: center;">{{i.comment_id}}</td>#}
+          <td style="text-align: center;">{{i.report}}</td>
+          <td style="text-align: center;">{{i.date}}</td>
+          <td style="text-align: center;">{{i.time}}</td>
+{#          <td><a style="text-align: center;" href="{% url 'block_user' cdf=i.user_id%}" >BLOCK </a> </td>#}
+           <td style="text-align: center;"><a href="{% url 'block_user' cdf=i.user_id%}">Block</a></td>
+       </tr>
+         {% endfor%}
+   </table>
+
+  <br>
+  <br>
+  <br>
+  <h3 style="color:#2020c6;font-family: cursive;padding-bottom: 20px;">Blocked Users</h3>
+  	 <table border="1">
+  	 	<tr>
+  	 		<th style="text-align: center;width: 197px;background: #494962;color: white;">USERNAME</th>
+{#  	 		<th style="text-align: center;width: 197px;background: #494962;color: white;">COMMENT</th>#}
+  	 		<th style="text-align: center;width: 197px;background: #494962;color: white;">PHOTO</th>
+
+
+       </tr>
+         {% for i in cyber %}
+       <tr>
+
+          <td style="text-align: center;">{{i.username}}</td>
+{#          <td style="text-align: center;">{{i.comment_id}}</td>#}
+          <td style="text-align: center;"><img src="/static/{{i.profile_photo}}" width="70cm" height="70cm"></td>
+       </tr>
+         {% endfor%}
+   </table>
+
+</form>
+</center>
+{% endblock %}
+</body>
+</html>

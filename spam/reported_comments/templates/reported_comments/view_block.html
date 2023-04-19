@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+{% extends 'temp/admin_home.html' %}
+{% block base %}
+ <center>
+  <form method="post">
+
+  	 <table border="1">
+  	 	<tr>
+  	 		<th style="text-align: center;width: 197px;background: #494962;color: white;">USERNAME</th>
+  	 		<th style="text-align: center;width: 197px;background: #494962;color: white;">COMMENT ID</th>
+  	 		<th style="text-align: center;width: 197px;background: #494962;color: white;">REPORT</th>
+  	 		<th style="text-align: center;width: 197px;background: #494962;color: white;">DATE</th>
+  	 		<th style="text-align: center;width: 197px;background: #494962;color: white;">TIME</th>
+
+
+       </tr>
+          {% for i in blo %}
+       <tr>
+
+          <td style="text-align: center;">{{i.user_id}}</td>
+          <td style="text-align: center;">{{ i.comment_id }}</td>
+          <td style="text-align: center;">{{ i.report }}</td>
+          <td style="text-align: center;">{{ i.date }}</td>
+          <td style="text-align: center;">{{ i.time }}</td>
+
+       </tr>
+          {% endfor%}
+   </table>
+
+</form>
+</center>
+{% endblock %}
+</body>
+</html>

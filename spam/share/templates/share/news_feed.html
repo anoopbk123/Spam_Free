@@ -1,0 +1,56 @@
+{#<!DOCTYPE html>#}
+{#<html>#}
+{#<head>#}
+{#   <meta charset="utf-8">#}
+{#   <title></title>#}
+{#</head>#}
+{#<body>#}
+{% extends 'temp/user_home.html' %}
+{% block base %}
+   <center>
+  <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+       <h3 style="color:#2020c6;font-family: cursive;padding-bottom: 20px;">News Feed</h3>
+{% for i in images %}
+    <table border="1">
+    <tbody style="border:2px solid blue;">
+
+      <tr>
+          <td style="padding-left: 20px;">{{ i.10 }}</td>
+      </tr>
+        <tr>
+            <td style="padding-left: 20px;">{{ i.7 }}  {{ i.8 }}</td>
+        </tr>
+        <tr>
+            <td><img src="/static/{{ i.6 }}" width="300" height="300" style="padding:20px;"></td>
+        </tr>
+        <tr>
+{#        {% if count %}#}
+{##}
+{#            {% for c in count %}#}
+{#                {% if i.4 == c.0 %}#}
+{#                   <td style="padding-left: 20px;"><a href="{% url 'like' idd=i.4 %}">LIKE :</a> {{ c.1 }}</td>#}
+{#                {% endif %}#}
+{#            {% endfor %}#}
+{#        {% else %}#}
+{#                           <td style="padding-left: 20px;"><a href="{% url 'like' idd=i.4 %}">LIKE :</a></td>#}
+{#    {% endif %}#}
+            <td style="padding-left: 20px;"><a href="{% url 'like' idd=i.4 %}">LIKE :</a> {{ i.20}}</td>
+
+        </tr>
+
+        <tr>
+             <td style="padding-left: 20px;"><a href="{% url 'com' cid=i.4 %}">Comment</a></td>
+        </tr>
+        <tr>
+            <td></td>
+        </tr>
+      </tbody>
+    </table>
+      {% endfor %}
+
+</form>
+</center>
+{#</body>#}
+{#</html>#}
+{% endblock %}

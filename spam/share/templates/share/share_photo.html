@@ -1,0 +1,29 @@
+{#	<!DOCTYPE html>#}
+{#	<html>#}
+{#	<head>#}
+{#		<meta charset="utf-8">#}
+{#		<title>share photo</title>#}
+{#	</head>#}
+{#	<body>#}
+{% extends 'temp/user_home.html' %}
+{% block base %}
+    <form method="post" enctype="multipart/form-data" >
+        {% csrf_token %}
+          <h3 align="center" style="color:#2020c6;font-family: cursive;padding-bottom: 20px;">SHARE PHOTO</h3>
+	 <table align="center">
+         <tbody style="border:2px solid #3000d6; padding: 20px;">
+	 	<tr>
+            <td style="padding:20px;">SELECT IMAGE</td>
+	 		<td><input type="file" name="photo" required=""></td>
+	 	</tr>
+	 	<tr>
+	 		<td></td>
+  	 		<td><input type="submit" name="share" value="SHARE" style="color: blue;border: 2px solid #09099e;background: transparent;padding: 1px;
+    width: 88px;margin: 20px;"></td>
+	 	</tr>
+         </tbody>
+	 </table>
+        </form>
+     {% endblock %}
+{#	</body>#}
+{#	</html>#}

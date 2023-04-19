@@ -1,0 +1,47 @@
+{#<!DOCTYPE html>#}
+{#<html>#}
+{#<head>#}
+{#   <meta charset="utf-8">#}
+{#   <title></title>#}
+{#</head>#}
+{#<body>#}
+{% extends 'temp/user_home.html' %}
+{% block base %}
+   <center>
+  <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+       <h3 style="color:#2020c6;font-family: cursive;padding-bottom: 20px;"> Your Post</h3>
+{% for i in images %}
+    <table border="1">
+    <tbody style="border:2px solid blue">
+
+
+        <tr>
+            <td style="padding-left:11px;">{{ i.3 }} {{ i.4 }}</td>
+        </tr>
+
+        <tr>
+            <td style="padding:12px;"><img src="/static/{{ i.2 }}" width="300" height="300"></td>
+        </tr>
+
+
+        <tr>
+            <td style="padding-left: 20px;"><a href="{% url 'like' idd=i.0 %}">LIKE :</a> {{ i.7}}</td>
+        </tr>
+        <tr>
+            <td style="padding-left:11px;"><a href="{% url 'commm' idd=i.0 %}" >View Comments</a></td>
+
+        </tr>
+        <tr>
+            <td style="padding-left:11px;"><a href="{% url 'share_del' idd=i.0 %}" >Delete Post</a></td>
+
+        </tr>
+    </tbody>
+    </table>
+      {% endfor %}
+
+</form>
+</center>
+{#</body>#}
+{#</html>#}
+{% endblock %}

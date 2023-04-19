@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <title></title>
+</head>
+<body>
+{% extends 'temp/user_home.html' %}
+{% block base %}
+   <center>
+  <form method="post">
+      {% csrf_token %}
+      <h3 style="color:#2020c6;font-family: cursive;padding-bottom: 20px;">Comment</h3>
+    
+    <table>
+      <tr>
+         <td><input type="text" autocomplete="off" name="comment" style="height:60px;"></td>
+       </tr>
+       
+       
+       
+       <tr>
+         <td align="center"><input type="submit" name="post" value="POST" style="color: blue;border: 2px solid #09099e; background: transparent;padding: 1px;width: 88px;margin: 20px;"></td>
+       </tr>
+    </table>
+   
+</form>
+</center>
+{% endblock %}
+</body>
+</html>
